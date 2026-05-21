@@ -1,0 +1,19 @@
+<h1>Lista de tareas</h1>
+<a href="/crear/">Crear tarea</a>
+<a href="/completadas/">Completadas</a>
+
+<ul>
+    {% for tarea in tareas %}
+    <li>
+        <b>{{tarea.titulo}}</b> - {{tarea.descripcion}}
+        {% if tarea.estado %}
+            ** Completada
+        {% else %}
+            xx Pendiente
+        {% endif %}
+
+        <a href="/editar/{{tarea.id}}/">Editar</a>
+        <a href="/eliminar/{{tarea.id}}/">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
